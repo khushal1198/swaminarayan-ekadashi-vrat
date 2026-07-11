@@ -39,7 +39,7 @@ Months are listed in Kartikadi (VS year) order.
 | Shravan | Aja | Janardan | Sundari | Chaturmas |
 | Bhadarvo | Indira | Upendra | Subhaga | Chaturmas |
 | Aso | Rama | Hari | Hiranya | Chaturmas |
-| Kartik | Utpanna | Shri Krishna | Sulakshana | Chaturmas |
+| Kartik | Utpanna | Shri Krishna | Sulakshana | — (after Chaturmas ends) |
 
 ---
 

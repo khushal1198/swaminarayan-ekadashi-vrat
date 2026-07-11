@@ -10,28 +10,27 @@ Computed for **Junagadh, India** (21.52°N, 70.46°E, Asia/Kolkata). Fast day = 
 | 2 | **Putrada** | VS 2083 Posh Sud 11 | **Tue, Jan 19, 2027** | Wed Jan 20 · 7:28 AM IST–7:58 AM IST | — |  |
 | 3 | **Shattila** | VS 2083 Posh Vad 11 | **Tue, Feb 02, 2027** | Wed Feb 03 · 7:24 AM IST–10:13 AM IST | — |  |
 | 4 | **Jaya** | VS 2083 Maha Sud 11 | **Wed, Feb 17, 2027** | Thu Feb 18 · 7:17 AM IST–10:09 AM IST | — |  |
-| 5 | **Vijaya** | VS 2083 Maha Vad 11 | **Wed, Mar 03, 2027** | Thu Mar 04 · 7:25 AM IST–10:03 AM IST | — |  |
-| 6 | **Vijaya** | VS 2083 Maha Vad 11 | **Thu, Mar 04, 2027** | Fri Mar 05 · 7:05 AM IST–9:55 AM IST | — |  |
-| 7 | **Amalaki** | VS 2083 Fagan Sud 11 | **Thu, Mar 18, 2027** | Fri Mar 19 · 6:53 AM IST–9:54 AM IST | — |  |
-| 8 | **Papmochani** | VS 2083 Fagan Vad 11 | **Fri, Apr 02, 2027** | Sat Apr 03 · 6:39 AM IST–9:45 AM IST | — |  |
-| 9 | **Kamada** | VS 2083 Chaitra Sud 11 | **Sat, Apr 17, 2027** | Sun Apr 18 · 6:26 AM IST–7:43 AM IST | — |  |
-| 10 | **Varuthini** | VS 2083 Chaitra Vad 11 | **Sun, May 02, 2027** | Mon May 03 · 6:15 AM IST–9:30 AM IST | — |  |
-| 11 | **Mohini** | VS 2083 Vaishakh Sud 11 | **Sun, May 16, 2027** | Mon May 17 · 6:08 AM IST–9:26 AM IST | — |  |
-| 12 | **Apara** | VS 2083 Vaishakh Vad 11 | **Tue, Jun 01, 2027** | Wed Jun 02 · 6:05 AM IST–8:29 AM IST | — |  |
-| 13 | **Nirjala** | VS 2083 Jeth Sud 11 | **Mon, Jun 14, 2027** | Tue Jun 15 · 6:05 AM IST–9:26 AM IST | — | waterless (strictest) |
-| 14 | **Yogini** | VS 2083 Jeth Vad 11 | **Wed, Jun 30, 2027** | Thu Jul 01 · 6:08 AM IST–9:30 AM IST | — |  |
-| 15 | **Devshayani** | VS 2083 Ashadh Sud 11 | **Wed, Jul 14, 2027** | Thu Jul 15 · 6:14 AM IST–9:34 AM IST | **MANDATORY** |  |
-| 16 | **Kamika** | VS 2083 Ashadh Vad 11 | **Fri, Jul 30, 2027** | Sat Jul 31 · 6:20 AM IST–6:50 AM IST | Chaturmas | Kshaya — Ekadashi absent at sunrise; fast on Dwadashi |
-| 17 | **Putrada** | VS 2083 Shravan Sud 11 | **Thu, Aug 12, 2027** | Fri Aug 13 · 6:25 AM IST–9:39 AM IST | Chaturmas |  |
-| 18 | **Aja** | VS 2083 Shravan Vad 11 | **Sat, Aug 28, 2027** | Sun Aug 29 · 6:30 AM IST–9:36 AM IST | Chaturmas |  |
-| 19 | **Parivartini** | VS 2083 Bhadarvo Sud 11 | **Sat, Sep 11, 2027** | Sun Sep 12 · 6:34 AM IST–9:39 AM IST | **MANDATORY** |  |
-| 20 | **Indira** | VS 2083 Bhadarvo Vad 11 | **Sun, Sep 26, 2027** | Mon Sep 27 · 6:37 AM IST–9:38 AM IST | Chaturmas |  |
-| 21 | **Pashankusha** | VS 2083 Aso Sud 11 | **Mon, Oct 11, 2027** | Tue Oct 12 · 6:42 AM IST–9:38 AM IST | Chaturmas |  |
-| 22 | **Rama** | VS 2083 Aso Vad 11 | **Tue, Oct 26, 2027** | Wed Oct 27 · 6:48 AM IST–7:18 AM IST | Chaturmas | Viddha — Dashami vedh; fast moved to Dwadashi |
-| 23 | **Prabodhini** | VS 2084 Kartik Sud 11 | **Wed, Nov 10, 2027** | Thu Nov 11 · 6:56 AM IST–9:44 AM IST | **MANDATORY** | equals all 24 |
-| 24 | **Utpanna** | VS 2084 Kartik Vad 11 | **Wed, Nov 24, 2027** | Thu Nov 25 · 7:05 AM IST–9:49 AM IST | Chaturmas |  |
-| 25 | **Mokshada** | VS 2084 Magshar Sud 11 | **Thu, Dec 09, 2027** | Fri Dec 10 · 7:14 AM IST–9:57 AM IST | — |  |
-| 26 | **Saphala** | VS 2084 Magshar Vad 11 | **Thu, Dec 23, 2027** | Fri Dec 24 · 7:22 AM IST–10:05 AM IST | — |  |
+| 5 | **Vijaya** | VS 2083 Maha Vad 11 | **Thu, Mar 04, 2027** | Fri Mar 05 · 7:05 AM IST–9:55 AM IST | — | Vriddhi — Ekadashi spans two sunrises; fast on the second (Vaishnava rule) |
+| 6 | **Amalaki** | VS 2083 Fagan Sud 11 | **Thu, Mar 18, 2027** | Fri Mar 19 · 6:53 AM IST–9:54 AM IST | — |  |
+| 7 | **Papmochani** | VS 2083 Fagan Vad 11 | **Fri, Apr 02, 2027** | Sat Apr 03 · 6:39 AM IST–9:45 AM IST | — |  |
+| 8 | **Kamada** | VS 2083 Chaitra Sud 11 | **Sat, Apr 17, 2027** | Sun Apr 18 · 6:26 AM IST–7:43 AM IST | — |  |
+| 9 | **Varuthini** | VS 2083 Chaitra Vad 11 | **Sun, May 02, 2027** | Mon May 03 · 6:15 AM IST–9:30 AM IST | — |  |
+| 10 | **Mohini** | VS 2083 Vaishakh Sud 11 | **Sun, May 16, 2027** | Mon May 17 · 6:08 AM IST–9:26 AM IST | — |  |
+| 11 | **Apara** | VS 2083 Vaishakh Vad 11 | **Tue, Jun 01, 2027** | Wed Jun 02 · 6:05 AM IST–8:29 AM IST | — |  |
+| 12 | **Nirjala** | VS 2083 Jeth Sud 11 | **Mon, Jun 14, 2027** | Tue Jun 15 · 6:05 AM IST–9:26 AM IST | — | waterless (strictest) |
+| 13 | **Yogini** | VS 2083 Jeth Vad 11 | **Wed, Jun 30, 2027** | Thu Jul 01 · 6:08 AM IST–9:30 AM IST | — |  |
+| 14 | **Devshayani** | VS 2083 Ashadh Sud 11 | **Wed, Jul 14, 2027** | Thu Jul 15 · 6:14 AM IST–9:34 AM IST | **MANDATORY** |  |
+| 15 | **Kamika** | VS 2083 Ashadh Vad 11 | **Fri, Jul 30, 2027** | Sat Jul 31 · 6:20 AM IST–6:50 AM IST | Chaturmas | Kshaya — Ekadashi absent at sunrise; fast on Dwadashi |
+| 16 | **Putrada** | VS 2083 Shravan Sud 11 | **Thu, Aug 12, 2027** | Fri Aug 13 · 6:25 AM IST–9:39 AM IST | Chaturmas |  |
+| 17 | **Aja** | VS 2083 Shravan Vad 11 | **Sat, Aug 28, 2027** | Sun Aug 29 · 6:30 AM IST–9:36 AM IST | Chaturmas |  |
+| 18 | **Parivartini** | VS 2083 Bhadarvo Sud 11 | **Sat, Sep 11, 2027** | Sun Sep 12 · 6:34 AM IST–9:39 AM IST | **MANDATORY** |  |
+| 19 | **Indira** | VS 2083 Bhadarvo Vad 11 | **Sun, Sep 26, 2027** | Mon Sep 27 · 6:37 AM IST–9:38 AM IST | Chaturmas |  |
+| 20 | **Pashankusha** | VS 2083 Aso Sud 11 | **Mon, Oct 11, 2027** | Tue Oct 12 · 6:42 AM IST–9:38 AM IST | Chaturmas |  |
+| 21 | **Rama** | VS 2083 Aso Vad 11 | **Tue, Oct 26, 2027** | Wed Oct 27 · 6:48 AM IST–7:18 AM IST | Chaturmas | Viddha — Dashami vedh; fast moved to Dwadashi |
+| 22 | **Prabodhini** | VS 2084 Kartik Sud 11 | **Wed, Nov 10, 2027** | Thu Nov 11 · 6:56 AM IST–9:44 AM IST | **MANDATORY** | equals all 24 |
+| 23 | **Utpanna** | VS 2084 Kartik Vad 11 | **Wed, Nov 24, 2027** | Thu Nov 25 · 7:05 AM IST–9:49 AM IST | — |  |
+| 24 | **Mokshada** | VS 2084 Magshar Sud 11 | **Thu, Dec 09, 2027** | Fri Dec 10 · 7:14 AM IST–9:57 AM IST | — |  |
+| 25 | **Saphala** | VS 2084 Magshar Vad 11 | **Thu, Dec 23, 2027** | Fri Dec 24 · 7:22 AM IST–10:05 AM IST | — |  |
 
 ## Legend
 
@@ -39,5 +38,6 @@ Computed for **Junagadh, India** (21.52°N, 70.46°E, Asia/Kolkata). Fast day = 
 - **Chaturmas** — one of the 8 monsoon Ekadashis (Ashadh Sud through Kartik Sud).
 - **Viddha** — Dashami contaminated the Ekadashi at sunrise; Vaishnavas fast on Dwadashi instead.
 - **Kshaya** — the Ekadashi tithi was absent at every sunrise; the fast falls on the Dwadashi day.
+- **Vriddhi** — the Ekadashi tithi spanned two sunrises; Vaishnavas fast on the second day.
 
 _Generated by `generate_schedules.py`. Verify against your mandir's panchang for edge cases._

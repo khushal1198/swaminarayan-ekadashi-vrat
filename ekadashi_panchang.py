@@ -31,7 +31,7 @@ import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import ephem
 
@@ -69,7 +69,7 @@ VAD_EKADASHIS = {
     "Shravan": ("Aja", "Janardan", "Sundari", "chaturmas"),
     "Bhadarvo": ("Indira", "Upendra", "Subhaga", "chaturmas"),
     "Aso": ("Rama", "Hari", "Hiranya", "chaturmas"),
-    "Kartik": ("Utpanna", "Shri Krishna", "Sulakshana", "chaturmas"),
+    "Kartik": ("Utpanna", "Shri Krishna", "Sulakshana", "all_24"),
 }
 
 TIER_LABELS = {
@@ -575,6 +575,91 @@ def find_next_ekadashi(start_date, loc):
     return None
 
 
+def _tithi_at(d, loc):
+    """Tithi number (1-15) at local sunrise for date `d`."""
+    dt = datetime(d.year, d.month, d.day)  # noqa: DTZ001
+    _, t, _ = get_tithi(get_sunrise(dt, loc))
+    return t
+
+
+def find_fast_days(start_date, end_date, loc):
+    """
+    Canonical resolver: every Ekadashi *fast day* in [start_date, end_date] at
+    `loc`, correctly handling all four cases. Shared by the CLI and the schedule
+    generator so both agree.
+
+      - shuddha : Ekadashi present at sunrise, no Dashami vedh -> fast that day
+      - viddha  : Dashami vedh at that sunrise -> fast shifts to Dwadashi (+1)
+      - vriddhi : Ekadashi spans TWO consecutive sunrises -> fast on the second
+                  (Vaishnava/para rule), never both
+      - kshaya  : Ekadashi absent at every sunrise (Dasham -> Baras jump)
+                  -> fast on the Dwadashi day
+
+    Returns a list of fully-populated dicts sorted by fast_date.
+    """
+    tithi = {}
+    d = start_date - timedelta(days=2)
+    while d <= end_date + timedelta(days=2):
+        tithi[d] = _tithi_at(d, loc)
+        d += timedelta(days=1)
+
+    def make_entry(a, fast_date, kind, name, deity, shakti, tier, paran):
+        return {
+            "fast_date": fast_date,
+            "kind": kind,
+            "name": name,
+            "deity": deity,
+            "shakti": shakti,
+            "tier": tier,
+            "paksha": a.paksha,
+            "vs_year": a.vs_year,
+            "vs_month": a.vs_month_display,
+            "series": "Keshavadi" if a.paksha == "Sud" else "Sankarshanadi",
+            "paran": paran,
+            "analysis": a,
+        }
+
+    by_fast = {}
+
+    # Ekadashi-at-sunrise: only act on the LAST day of any consecutive run, so a
+    # vriddhi (two sunrises) collapses to its second, para day.
+    d = start_date
+    while d <= end_date:
+        if tithi.get(d) == 11 and tithi.get(d + timedelta(days=1)) != 11:
+            a = analyze_date(d, loc)
+            if a.is_ekadashi:
+                is_vriddhi = tithi.get(d - timedelta(days=1)) == 11
+                kind = "vriddhi" if is_vriddhi else ("viddha" if a.vedh.is_viddha else "shuddha")
+                by_fast[a.observance_date] = make_entry(
+                    a, a.observance_date, kind, a.ekadashi_name, a.deity,
+                    a.shakti, a.tier, a.paran,
+                )
+        d += timedelta(days=1)
+
+    # Kshaya: Ekadashi skipped => Dasham (10) directly to Baras (12); fast on Baras.
+    d = start_date
+    while d <= end_date:
+        nxt = d + timedelta(days=1)
+        if tithi.get(d) == 10 and tithi.get(nxt) == 12:
+            a = analyze_date(nxt, loc)  # nxt is Baras; correct VS month/paksha
+            name, deity, shakti, tier = get_ekadashi_info(a.vs_month, a.paksha, a.is_adhik)
+            paran = compute_paran(nxt, a.paksha, loc)
+            by_fast.setdefault(
+                nxt, make_entry(a, nxt, "kshaya", name, deity, shakti, tier, paran)
+            )
+        d += timedelta(days=1)
+
+    return [by_fast[k] for k in sorted(by_fast) if start_date <= k <= end_date]
+
+
+def find_next_fast(start_date, loc, within_days=45):
+    """Next Ekadashi fast entry strictly after start_date (kshaya/vriddhi aware)."""
+    for e in find_fast_days(start_date, start_date + timedelta(days=within_days), loc):
+        if e["fast_date"] > start_date:
+            return e
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Output formatters
 # ---------------------------------------------------------------------------
@@ -640,20 +725,47 @@ def print_ekadashi_analysis(a):
     print()
 
     if not a.is_ekadashi:
+        # Is THIS day itself a kshaya fast day? (Dwadashi at sunrise, preceded by
+        # a Dashami sunrise means the Ekadashi tithi was skipped entirely.)
+        prev_t = _tithi_at(a.date - timedelta(days=1), loc)
+        if a.tithi == 12 and prev_t == 10:
+            name, deity, shakti, tier = get_ekadashi_info(
+                a.vs_month, a.paksha, a.is_adhik
+            )
+            paran = compute_paran(a.date, a.paksha, loc)
+            print("  KSHAYA EKADASHI — fast TODAY (SJ P3/A33):")
+            print(
+                "    The Ekadashi tithi was absent at every sunrise (kshaya), so the"
+            )
+            print("    fast falls on this Dwadashi day.")
+            print()
+            print(f"  {name} Ekadashi (observed on Dwadashi)")
+            print(
+                f"  Presiding Deity: {deity}" + (f" with {shakti}" if shakti else "")
+            )
+            print(f"  Tier: {TIER_LABELS.get(tier, tier)}")
+            print()
+            print("  PARAN — fast-breaking:")
+            print(f"    Date          : {paran.paran_date.strftime('%A, %B %d, %Y')}")
+            print(
+                f"    Paran window  : {fmt_time(paran.window_start, loc)} — {fmt_time(paran.window_end, loc)}"
+            )
+            print()
+            print("=" * w)
+            print()
+            return
+
         print("  Not an Ekadashi day.")
         print()
-        nxt = find_next_ekadashi(a.date, loc)
+        nxt = find_next_fast(a.date, loc)
         if nxt:
-            nxt_analysis = analyze_date(nxt, loc)
-            days_away = (nxt - a.date).days
-            nxt_name = (
-                nxt_analysis.ekadashi_name if nxt_analysis.is_ekadashi else "Ekadashi"
+            days_away = (nxt["fast_date"] - a.date).days
+            kshaya_tag = " (kshaya — fast on Dwadashi)" if nxt["kind"] == "kshaya" else ""
+            print(
+                f"  Next Ekadashi: {nxt['vs_month']} {nxt['paksha']} — {nxt['name']}{kshaya_tag}"
             )
             print(
-                f"  Next Ekadashi: {nxt_analysis.vs_month_display} {nxt_analysis.paksha} — {nxt_name}"
-            )
-            print(
-                f"    {nxt.strftime('%A, %B %d, %Y')} ({days_away} day{'s' if days_away != 1 else ''} away)"
+                f"    {nxt['fast_date'].strftime('%A, %B %d, %Y')} ({days_away} day{'s' if days_away != 1 else ''} away)"
             )
         print()
         print("=" * w)
@@ -712,9 +824,20 @@ def print_ekadashi_analysis(a):
     print(f"    {p.note}")
     print()
 
+    # Vriddhi: Ekadashi at this sunrise AND the next -> Vaishnavas fast the 2nd day
+    next_day_tithi = _tithi_at(a.date + timedelta(days=1), loc)
+    is_vriddhi_first = next_day_tithi == 11 and not v.is_viddha
+
     # Practical summary
     print("  SUMMARY:")
-    if v.is_viddha:
+    if is_vriddhi_first:
+        print(
+            f"    Vriddhi: Ekadashi spans two sunrises — Vaishnavas fast on the 2nd,"
+        )
+        print(
+            f"    Fast on: {(a.date + timedelta(days=1)).strftime('%A, %B %d')} (not today)"
+        )
+    elif v.is_viddha:
         print(
             f"    Fast on: {a.observance_date.strftime('%A, %B %d')} (Dwadashi — shifted due to vedh)"
         )
@@ -736,41 +859,19 @@ def print_ekadashi_analysis(a):
     print()
 
 
+KIND_MARK = {
+    "viddha": " *viddha->Dwadashi*",
+    "kshaya": " *kshaya->Dwadashi*",
+    "vriddhi": " *vriddhi (2nd day)*",
+    "shuddha": "",
+}
+
+
 def print_upcoming(months, loc):
-    """Print upcoming Ekadashis for N months."""
+    """Print upcoming Ekadashi fast days for N months (kshaya/vriddhi aware)."""
     today = datetime.now(loc.tz).date()
-    end_date = today + timedelta(days=months * 30)
-
-    # Try DB first for speed
-    db_path = Path(__file__).parent / "vs_calendar_complete.db"
-    ekadashi_dates = []
-
-    if db_path.exists():
-        conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
-        cursor.execute(
-            "SELECT gregorian_date FROM vs_calendar "
-            "WHERE tithi = 11 AND is_kshaya = 0 "
-            "AND gregorian_date BETWEEN ? AND ? "
-            "ORDER BY gregorian_date",
-            (today.isoformat(), end_date.isoformat()),
-        )
-        ekadashi_dates = [
-            datetime.strptime(row[0], "%Y-%m-%d").date()  # noqa: DTZ007
-            for row in cursor.fetchall()
-        ]
-        conn.close()
-
-    if not ekadashi_dates:
-        # Fallback: scan day by day
-        d = today
-        while d <= end_date:
-            dt = datetime(d.year, d.month, d.day)  # noqa: DTZ001
-            sr = get_sunrise(dt, loc)
-            _, t, _ = get_tithi(sr)
-            if t == 11:
-                ekadashi_dates.append(d)
-            d += timedelta(days=1)
+    end_date = today + timedelta(days=months * 31)
+    fasts = find_fast_days(today, end_date, loc)
 
     w = 72
     print()
@@ -780,57 +881,26 @@ def print_upcoming(months, loc):
     print("=" * w)
     print()
 
-    # DB is for Ahmedabad. For other locations, also check day before/after each DB date.
-    candidate_set = set()
-    for d in ekadashi_dates:
-        candidate_set.add(d)
-        candidate_set.add(d - timedelta(days=1))
-        candidate_set.add(d + timedelta(days=1))
-    # Filter to actual Ekadashis at this location
-    verified = []
-    for d in sorted(candidate_set):
-        if d < today or d > end_date:
-            continue
-        a = analyze_date(d, loc)
-        if a.is_ekadashi:
-            verified.append((d, a))
-
-    # Deduplicate: if a viddha Ekadashi shifts to Dwadashi on day X,
-    # and day X also shows as Ekadashi at sunrise, skip the duplicate
-    viddha_shift_dates = set()
-    for _d, a in verified:
-        if a.vedh and a.vedh.is_viddha and a.observance_date:
-            viddha_shift_dates.add(a.observance_date)
-
-    num = 0
-    for d, a in verified:
-        if d in viddha_shift_dates and not (a.vedh and a.vedh.is_viddha):
-            continue  # Skip — this date is covered by the viddha shift above
-        num += 1
-
-        vedh_mark = " *VIDDHA*" if a.vedh and a.vedh.is_viddha else ""
+    for num, e in enumerate(fasts, 1):
         tier_mark = ""
-        if a.tier == "mandatory":
+        if e["tier"] == "mandatory":
             tier_mark = " [MANDATORY]"
-        elif a.tier == "chaturmas":
+        elif e["tier"] == "chaturmas":
             tier_mark = " [chaturmas]"
-
         print(
-            f"  {num:>2}. {d.strftime('%b %d, %Y  %a'):>20}  "
-            f"{a.vs_month_display:>12} {a.paksha}  "
-            f"{a.ekadashi_name:<14}{vedh_mark}{tier_mark}"
+            f"  {num:>2}. {e['fast_date'].strftime('%b %d, %Y  %a'):>20}  "
+            f"{e['vs_month']:>12} {e['paksha']}  "
+            f"{e['name']:<16}{KIND_MARK.get(e['kind'], '')}{tier_mark}"
         )
 
-        if a.vedh and a.vedh.is_viddha:
-            obs = a.observance_date
-            print(f"      -> Fast shifts to Dwadashi: {obs.strftime('%b %d, %Y  %a')}")
-
-    has_viddha = any(a.vedh and a.vedh.is_viddha for _, a in verified)
+    kinds = {e["kind"] for e in fasts}
     print()
-    if has_viddha:
-        print(
-            "  * VIDDHA = Dashami vedh contaminates Ekadashi; fast on Dwadashi instead"
-        )
+    if "viddha" in kinds:
+        print("  viddha  = Dashami vedh; fast on Dwadashi instead")
+    if "kshaya" in kinds:
+        print("  kshaya  = Ekadashi absent at sunrise; fast on Dwadashi")
+    if "vriddhi" in kinds:
+        print("  vriddhi = Ekadashi spans two sunrises; fast on the second day")
     print()
     print("=" * w)
     print()
@@ -856,13 +926,12 @@ def resolve_location(loc_str):
         if len(parts) >= 2:
             try:
                 lat, lon = float(parts[0]), float(parts[1])
-            except ValueError:
+                elev = float(parts[2]) if len(parts) > 2 and parts[2] else 0
+                tz_name = parts[3] if len(parts) > 3 else "UTC"
+                tz = ZoneInfo(tz_name)
+            except (ValueError, ZoneInfoNotFoundError, KeyError):
                 return None
-            elev = float(parts[2]) if len(parts) > 2 and parts[2] else 0
-            tz_name = parts[3] if len(parts) > 3 else "UTC"
-            return Location(
-                f"Custom ({lat:.2f}, {lon:.2f})", lat, lon, elev, ZoneInfo(tz_name)
-            )
+            return Location(f"Custom ({lat:.2f}, {lon:.2f})", lat, lon, elev, tz)
     return None
 
 
@@ -964,21 +1033,22 @@ def main():
 
     elif args.command == "next":
         today = datetime.now(loc.tz).date()
-        # Check today first
-        a_today = analyze_date(today, loc)
-        if a_today.is_ekadashi:
-            print_ekadashi_analysis(a_today)
-            return
-
-        nxt = find_next_ekadashi(today, loc)
-        if nxt:
-            a = analyze_date(nxt, loc)
-            print_ekadashi_analysis(a)
+        # find_fast_days handles today-as-fast-day plus kshaya/vriddhi correctly.
+        fasts = find_fast_days(
+            today - timedelta(days=1), today + timedelta(days=45), loc
+        )
+        entry = next((e for e in fasts if e["fast_date"] >= today), None)
+        if entry:
+            print_ekadashi_analysis(entry["analysis"])
         else:
-            print("Could not find next Ekadashi within 20 days.")
+            print("Could not find next Ekadashi within 45 days.")
 
     elif args.command == "check":
-        target = datetime.strptime(args.date, "%Y-%m-%d").date()  # noqa: DTZ007
+        try:
+            target = datetime.strptime(args.date, "%Y-%m-%d").date()  # noqa: DTZ007
+        except ValueError:
+            print(f"Invalid date: {args.date!r}. Use YYYY-MM-DD (e.g. 2026-08-08).")
+            sys.exit(1)
         a = analyze_date(target, loc)
         print_ekadashi_analysis(a)
 

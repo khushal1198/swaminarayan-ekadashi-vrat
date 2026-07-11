@@ -81,7 +81,7 @@ See [`docs/rules.md`](docs/rules.md) for the full explanation. In short:
 | **Dashami Vedh** | If Dashami (10) lingers into *arunodaya* (sunrise − 96 min), the Ekadashi is **viddha** (contaminated) and the fast shifts to Dwadashi. |
 | **Kshaya** | If the Ekadashi tithi is absent at every sunrise, the fast falls on the **Dwadashi** day. |
 | **Paran** | Break the fast on Dwadashi, after sunrise and before the end of the first *pahar* (quarter of daytime) — or before Dwadashi ends, if it's short. |
-| **Tiers** | Best: all 24 · Acceptable: 8 Chaturmas · Minimum: 3 mandatory (Devshayani, Parivartini, Prabodhini) · Absolute minimum: Prabodhini alone = fruit of all 24. |
+| **Tiers** | Best: all 24 · Acceptable: the Chaturmas Ekadashis · Minimum: 3 mandatory (Devshayani, Parivartini, Prabodhini) · Absolute minimum: Prabodhini alone = fruit of all 24. |
 
 The 24 named Ekadashis, their presiding deities and shaktis are in
 [`docs/24-ekadashis.md`](docs/24-ekadashis.md).

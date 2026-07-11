@@ -6,31 +6,30 @@ Computed for **New York, NY** (40.71°N, 74.01°W, America/New_York). Fast day =
 
 | # | Ekadashi | VS date | Fast on | Break fast (paran) | Tier | Note |
 |---|----------|---------|---------|--------------------|------|------|
-| 1 | **Shattila** | VS 2082 Posh Vad 11 | **Tue, Jan 13, 2026** | Wed Jan 14 · 7:23 AM EST–9:41 AM EST | — |  |
-| 2 | **Shattila** | VS 2082 Posh Vad 11 | **Wed, Jan 14, 2026** | Thu Jan 15 · 7:17 AM EST–9:41 AM EST | — |  |
-| 3 | **Jaya** | VS 2082 Maha Sud 11 | **Thu, Jan 29, 2026** | Fri Jan 30 · 7:07 AM EST–7:37 AM EST | — | Viddha — Dashami vedh; fast moved to Dwadashi |
-| 4 | **Vijaya** | VS 2082 Maha Vad 11 | **Thu, Feb 12, 2026** | Fri Feb 13 · 6:52 AM EST–9:31 AM EST | — |  |
-| 5 | **Amalaki** | VS 2082 Fagan Sud 11 | **Fri, Feb 27, 2026** | Sat Feb 28 · 6:31 AM EST–9:19 AM EST | — |  |
-| 6 | **Papmochani** | VS 2082 Fagan Vad 11 | **Sat, Mar 14, 2026** | Sun Mar 15 · 7:07 AM EDT–10:06 AM EDT | — |  |
-| 7 | **Kamada** | VS 2082 Chaitra Sud 11 | **Sat, Mar 28, 2026** | Sun Mar 29 · 6:44 AM EDT–9:52 AM EDT | — |  |
-| 8 | **Varuthini** | VS 2082 Chaitra Vad 11 | **Mon, Apr 13, 2026** | Tue Apr 14 · 6:18 AM EDT–9:37 AM EDT | — |  |
-| 9 | **Mohini** | VS 2082 Vaishakh Sud 11 | **Mon, Apr 27, 2026** | Tue Apr 28 · 5:58 AM EDT–9:22 AM EDT | — |  |
-| 10 | **Apara** | VS 2082 Vaishakh Vad 11 | **Wed, May 13, 2026** | Thu May 14 · 5:39 AM EDT–6:09 AM EDT | — | Viddha — Dashami vedh; fast moved to Dwadashi |
-| 11 | **Adhik Masa Ekadashi** | VS 2082 Adhik Jeth Sud 11 | **Tue, May 26, 2026** | Wed May 27 · 5:29 AM EDT–9:11 AM EDT | Adhik-maas (extra) |  |
-| 12 | **Adhik Masa Ekadashi** | VS 2082 Adhik Jeth Vad 11 | **Thu, Jun 11, 2026** | Fri Jun 12 · 5:24 AM EDT–9:10 AM EDT | Adhik-maas (extra) |  |
-| 13 | **Nirjala** | VS 2082 Nij Jeth Sud 11 | **Thu, Jun 25, 2026** | Fri Jun 26 · 5:26 AM EDT–9:12 AM EDT | — | waterless (strictest) |
-| 14 | **Yogini** | VS 2082 Nij Jeth Vad 11 | **Fri, Jul 10, 2026** | Sat Jul 11 · 5:34 AM EDT–9:17 AM EDT | — |  |
-| 15 | **Devshayani** | VS 2082 Ashadh Sud 11 | **Fri, Jul 24, 2026** | Sat Jul 25 · 5:46 AM EDT–9:24 AM EDT | **MANDATORY** |  |
-| 16 | **Kamika** | VS 2082 Ashadh Vad 11 | **Sun, Aug 09, 2026** | Mon Aug 10 · 6:01 AM EDT–6:31 AM EDT | Chaturmas | Viddha — Dashami vedh; fast moved to Dwadashi |
-| 17 | **Putrada** | VS 2082 Shravan Sud 11 | **Sun, Aug 23, 2026** | Mon Aug 24 · 6:15 AM EDT–9:36 AM EDT | Chaturmas |  |
-| 18 | **Aja** | VS 2082 Shravan Vad 11 | **Mon, Sep 07, 2026** | Tue Sep 08 · 6:29 AM EDT–6:59 AM EDT | Chaturmas |  |
-| 19 | **Parivartini** | VS 2082 Bhadarvo Sud 11 | **Tue, Sep 22, 2026** | Wed Sep 23 · 6:44 AM EDT–9:46 AM EDT | **MANDATORY** |  |
-| 20 | **Indira** | VS 2082 Bhadarvo Vad 11 | **Tue, Oct 06, 2026** | Wed Oct 07 · 6:58 AM EDT–9:50 AM EDT | Chaturmas |  |
-| 21 | **Pashankusha** | VS 2082 Aso Sud 11 | **Wed, Oct 21, 2026** | Thu Oct 22 · 7:14 AM EDT–9:57 AM EDT | Chaturmas |  |
-| 22 | **Rama** | VS 2082 Aso Vad 11 | **Wed, Nov 04, 2026** | Thu Nov 05 · 6:30 AM EST–9:05 AM EST | Chaturmas |  |
-| 23 | **Prabodhini** | VS 2083 Kartik Sud 11 | **Fri, Nov 20, 2026** | Sat Nov 21 · 6:49 AM EST–9:15 AM EST | **MANDATORY** | equals all 24 |
-| 24 | **Utpanna** | VS 2083 Kartik Vad 11 | **Fri, Dec 04, 2026** | Sat Dec 05 · 7:04 AM EST–9:25 AM EST | Chaturmas |  |
-| 25 | **Mokshada** | VS 2083 Magshar Sud 11 | **Sun, Dec 20, 2026** | Mon Dec 21 · 7:16 AM EST–7:46 AM EST | — |  |
+| 1 | **Shattila** | VS 2082 Posh Vad 11 | **Wed, Jan 14, 2026** | Thu Jan 15 · 7:17 AM EST–9:41 AM EST | — | Vriddhi — Ekadashi spans two sunrises; fast on the second (Vaishnava rule) |
+| 2 | **Jaya** | VS 2082 Maha Sud 11 | **Thu, Jan 29, 2026** | Fri Jan 30 · 7:07 AM EST–7:37 AM EST | — | Viddha — Dashami vedh; fast moved to Dwadashi |
+| 3 | **Vijaya** | VS 2082 Maha Vad 11 | **Thu, Feb 12, 2026** | Fri Feb 13 · 6:52 AM EST–9:31 AM EST | — |  |
+| 4 | **Amalaki** | VS 2082 Fagan Sud 11 | **Fri, Feb 27, 2026** | Sat Feb 28 · 6:31 AM EST–9:19 AM EST | — |  |
+| 5 | **Papmochani** | VS 2082 Fagan Vad 11 | **Sat, Mar 14, 2026** | Sun Mar 15 · 7:07 AM EDT–10:06 AM EDT | — |  |
+| 6 | **Kamada** | VS 2082 Chaitra Sud 11 | **Sat, Mar 28, 2026** | Sun Mar 29 · 6:44 AM EDT–9:52 AM EDT | — |  |
+| 7 | **Varuthini** | VS 2082 Chaitra Vad 11 | **Mon, Apr 13, 2026** | Tue Apr 14 · 6:18 AM EDT–9:37 AM EDT | — |  |
+| 8 | **Mohini** | VS 2082 Vaishakh Sud 11 | **Mon, Apr 27, 2026** | Tue Apr 28 · 5:58 AM EDT–9:22 AM EDT | — |  |
+| 9 | **Apara** | VS 2082 Vaishakh Vad 11 | **Wed, May 13, 2026** | Thu May 14 · 5:39 AM EDT–6:09 AM EDT | — | Viddha — Dashami vedh; fast moved to Dwadashi |
+| 10 | **Adhik Masa Ekadashi** | VS 2082 Adhik Jeth Sud 11 | **Tue, May 26, 2026** | Wed May 27 · 5:29 AM EDT–9:11 AM EDT | Adhik-maas (extra) |  |
+| 11 | **Adhik Masa Ekadashi** | VS 2082 Adhik Jeth Vad 11 | **Thu, Jun 11, 2026** | Fri Jun 12 · 5:24 AM EDT–9:10 AM EDT | Adhik-maas (extra) |  |
+| 12 | **Nirjala** | VS 2082 Nij Jeth Sud 11 | **Thu, Jun 25, 2026** | Fri Jun 26 · 5:26 AM EDT–9:12 AM EDT | — | waterless (strictest) |
+| 13 | **Yogini** | VS 2082 Nij Jeth Vad 11 | **Fri, Jul 10, 2026** | Sat Jul 11 · 5:34 AM EDT–9:17 AM EDT | — |  |
+| 14 | **Devshayani** | VS 2082 Ashadh Sud 11 | **Fri, Jul 24, 2026** | Sat Jul 25 · 5:46 AM EDT–9:24 AM EDT | **MANDATORY** |  |
+| 15 | **Kamika** | VS 2082 Ashadh Vad 11 | **Sun, Aug 09, 2026** | Mon Aug 10 · 6:01 AM EDT–6:31 AM EDT | Chaturmas | Viddha — Dashami vedh; fast moved to Dwadashi |
+| 16 | **Putrada** | VS 2082 Shravan Sud 11 | **Sun, Aug 23, 2026** | Mon Aug 24 · 6:15 AM EDT–9:36 AM EDT | Chaturmas |  |
+| 17 | **Aja** | VS 2082 Shravan Vad 11 | **Mon, Sep 07, 2026** | Tue Sep 08 · 6:29 AM EDT–6:59 AM EDT | Chaturmas |  |
+| 18 | **Parivartini** | VS 2082 Bhadarvo Sud 11 | **Tue, Sep 22, 2026** | Wed Sep 23 · 6:44 AM EDT–9:46 AM EDT | **MANDATORY** |  |
+| 19 | **Indira** | VS 2082 Bhadarvo Vad 11 | **Tue, Oct 06, 2026** | Wed Oct 07 · 6:58 AM EDT–9:50 AM EDT | Chaturmas |  |
+| 20 | **Pashankusha** | VS 2082 Aso Sud 11 | **Wed, Oct 21, 2026** | Thu Oct 22 · 7:14 AM EDT–9:57 AM EDT | Chaturmas |  |
+| 21 | **Rama** | VS 2082 Aso Vad 11 | **Wed, Nov 04, 2026** | Thu Nov 05 · 6:30 AM EST–9:05 AM EST | Chaturmas |  |
+| 22 | **Prabodhini** | VS 2083 Kartik Sud 11 | **Fri, Nov 20, 2026** | Sat Nov 21 · 6:49 AM EST–9:15 AM EST | **MANDATORY** | equals all 24 |
+| 23 | **Utpanna** | VS 2083 Kartik Vad 11 | **Fri, Dec 04, 2026** | Sat Dec 05 · 7:04 AM EST–9:25 AM EST | — |  |
+| 24 | **Mokshada** | VS 2083 Magshar Sud 11 | **Sun, Dec 20, 2026** | Mon Dec 21 · 7:16 AM EST–7:46 AM EST | — |  |
 
 ## Legend
 
@@ -38,5 +37,6 @@ Computed for **New York, NY** (40.71°N, 74.01°W, America/New_York). Fast day =
 - **Chaturmas** — one of the 8 monsoon Ekadashis (Ashadh Sud through Kartik Sud).
 - **Viddha** — Dashami contaminated the Ekadashi at sunrise; Vaishnavas fast on Dwadashi instead.
 - **Kshaya** — the Ekadashi tithi was absent at every sunrise; the fast falls on the Dwadashi day.
+- **Vriddhi** — the Ekadashi tithi spanned two sunrises; Vaishnavas fast on the second day.
 
 _Generated by `generate_schedules.py`. Verify against your mandir's panchang for edge cases._

@@ -99,7 +99,7 @@ Not everyone can keep all 24. The graded obligation:
 |-------|-----------|
 | Best | All 24 Ekadashis, *niraahar* (complete food-fast) |
 | Good | All 24 with *falahar* (fruits / roots only) |
-| Acceptable | The 8 **Chaturmas** Ekadashis (Ashadh Sud → Kartik Sud) |
+| Acceptable | The **Chaturmas** Ekadashis (Ashadh Sud → Kartik Sud) |
 | Minimum | The 3 mandatory: **Devshayani, Parivartini, Prabodhini** |
 | Absolute minimum | **Prabodhini alone** — said to equal the fruit of all 24 |
 
@@ -107,12 +107,15 @@ Not everyone can keep all 24. The graded obligation:
 
 ## 8. Chaturmas Ekadashis
 
-The eight Ekadashis of the four holy monsoon months, from **Devshayani** (Ashadh
-Sud 11, when Vishnu enters yoga-nidra) to **Prabodhini** (Kartik Sud 11, when he
-awakens):
+The **nine** Ekadashis that fall within the holy monsoon period, from
+**Devshayani** (Ashadh Sud 11, when Vishnu enters yoga-nidra) to **Prabodhini**
+(Kartik Sud 11, when he awakens) inclusive:
 
 Devshayani → Kamika → Putrada (Shravan) → Aja → Parivartini → Indira →
-Pashankusha → Prabodhini.
+Pashankusha → **Rama** → Prabodhini.
+
+Note: **Utpanna** (Kartik *Vad* 11) falls *after* Prabodhini and so is **outside**
+Chaturmas — it is a regular Ekadashi, not a Chaturmas one.
 
 ---
 
